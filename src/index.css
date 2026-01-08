@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* már megint app - Premium Dark Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 85% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 142 70% 45%;
+
+    --radius: 1.5rem;
+
+    /* Channel-specific colors */
+    --channel-a: 142 70% 45%;
+    --channel-b: 0 85% 60%;
+
+    /* Premium Glass */
+    --glass-bg: 0 0% 0% / 40%;
+    --glass-border: 0 0% 100% / 10%;
+    --glass-border-hover: 0 0% 100% / 20%;
+    --glass-bg-hover: 0 0% 100% / 5%;
+
+    /* Gradients */
+    --gradient-text: linear-gradient(to bottom right, hsl(0 0% 100%), hsl(0 0% 60%));
+    --gradient-green: linear-gradient(135deg, hsl(142 70% 45%), hsl(142 70% 35%));
+    --gradient-red: linear-gradient(135deg, hsl(0 85% 60%), hsl(0 85% 45%));
+
+    /* Shadows */
+    --shadow-glow-green: 0 0 60px hsl(142 70% 45% / 0.4);
+    --shadow-glow-red: 0 0 60px hsl(0 85% 60% / 0.4);
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 142 70% 45%;
+
+    --chart-1: 142 70% 45%;
+    --chart-2: 0 85% 60%;
+    --chart-3: 45 100% 55%;
+    --chart-4: 180 60% 50%;
+    --chart-5: 265 60% 55%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 85% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 142 70% 45%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 142 70% 45%;
+
+    --chart-1: 142 70% 45%;
+    --chart-2: 0 85% 60%;
+    --chart-3: 45 100% 55%;
+    --chart-4: 180 60% 50%;
+    --chart-5: 265 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Premium Glass Material */
+  .premium-glass {
+    @apply bg-card/40 backdrop-blur-2xl border border-border/10 rounded-3xl;
+  }
+
+  .premium-glass-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .premium-glass-hover:hover {
+    @apply bg-accent/5 border-border/20 scale-[1.02];
+  }
+
+  /* Glass with channel tints */
+  .premium-glass-green {
+    @apply premium-glass;
+    background: linear-gradient(135deg, hsl(142 70% 45% / 0.05), hsl(0 0% 0% / 0.4));
+  }
+
+  .premium-glass-red {
+    @apply premium-glass;
+    background: linear-gradient(135deg, hsl(0 85% 60% / 0.05), hsl(0 0% 0% / 0.4));
+  }
+
+  /* Floating Island Nav */
+  .floating-nav {
+    @apply fixed z-50 left-1/2 -translate-x-1/2 px-2 py-2 premium-glass rounded-full;
+  }
+
+  /* Bento Grid */
+  .bento-grid {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to bottom right, hsl(0 0% 100%), hsl(0 0% 60%));
+  }
+
+  .text-gradient-green {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(142 70% 55%), hsl(142 70% 40%));
+  }
+
+  .text-gradient-red {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(0 85% 65%), hsl(0 85% 50%));
+  }
+
+  .glow-green {
+    box-shadow: 0 0 60px hsl(142 70% 45% / 0.4);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 60px hsl(0 85% 60% / 0.4);
+  }
+
+  .channel-a {
+    --channel-color: hsl(142 70% 45%);
+  }
+
+  .channel-b {
+    --channel-color: hsl(0 85% 60%);
+  }
+
+  /* Glass utilities for legacy support */
+  .glass {
+    @apply premium-glass;
+  }
+
+  .glass-hover {
+    @apply premium-glass-hover;
+  }
+}

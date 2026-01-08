@@ -1,0 +1,4 @@
+project_id = "qelyidhmvdepgfpcjaqn"
+
+[functions.youtube-rss]
+verify_jwt = false
